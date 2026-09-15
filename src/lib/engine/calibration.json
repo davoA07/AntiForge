@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "sampleIntervalMs": 10,
+  "smoothingWindow": 1,
+  "dtw": {
+    "bandFraction": 0.3,
+    "normalize": "sum"
+  },
+  "groups": {
+    "shape": [
+      "x",
+      "y",
+      "dirX",
+      "dirY"
+    ],
+    "dynamics": [
+      "vx",
+      "vy",
+      "speed",
+      "pressure"
+    ]
+  },
+  "featureScale": {
+    "x": 1.118,
+    "y": 2.2363,
+    "vx": 0.2117,
+    "vy": 0.1596,
+    "speed": 0.1992,
+    "dirX": 1.6053,
+    "dirY": 1.3145,
+    "pressure": 4.1402
+  },
+  "model": {
+    "features": [
+      "logMin",
+      "logMean",
+      "logMax",
+      "logDuration",
+      "strokeDelta",
+      "logLocal",
+      "zMean",
+      "logSpread",
+      "shapeLogMin",
+      "shapeLogMean",
+      "shapeLogLocal",
+      "dynLogMin",
+      "dynLogMean",
+      "dynLogLocal"
+    ],
+    "weights": [
+      0.0823,
+      0.6475,
+      -0.8615,
+      -5.3972,
+      -0.0551,
+      -1.3038,
+      0.0458,
+      -5.16,
+      0.4431,
+      -0.9002,
+      -3.6055,
+      -2.0604,
+      -3.1785,
+      -1.3092
+    ],
+    "bias": 4.315,
+    "threshold": 0.4411
+  },
+  "provenance": {
+    "status": "calibrated",
+    "dataset": "SVC2004 Task 1 + Task 2 (40 writers each)",
+    "protocol": "5 references, 15 genuine + 20 skilled + 39 random trials per writer",
+    "generatedAt": "2026-09-15T20:25:39.091Z",
+    "heldOut": {
+      "fitTask1_evalTask2": {
+        "skilledEer": 0.10333333333333333,
+        "randomEer": 0.005,
+        "userDependentEer": 0.032499999999999994
+      },
+      "fitTask2_evalTask1": {
+        "skilledEer": 0.125,
+        "randomEer": 0.04230769230769231,
+        "userDependentEer": 0.07291666666666669
+      }
+    }
+  }
+}
