@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* Ink-on-paper palette. Light by default, dark follows the system. */
+:root {
+  --paper: #f6f2ea;
+  --paper-2: #ede7db;
+  --paper-3: #e3dccd;
+  --ink: #17181c;
+  --ink-2: #4a4c54;
+  --ink-3: #85878f;
+  --line: #d9d2c3;
+  --accent: #1f5f8b;
+  --accent-soft: #d8e6f0;
+  --verified: #1f7a4d;
+  --verified-soft: #d6ecdf;
+  --forged: #c2452b;
+  --forged-soft: #f6dcd5;
+  --warn: #b7791f;
+  --warn-soft: #f5e7c8;
+  --slow: #d97a2b;
+  --fast: #17181c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121317;
+    --paper-2: #1a1b20;
+    --paper-3: #23242b;
+    --ink: #ecebe6;
+    --ink-2: #b3b1aa;
+    --ink-3: #7d7c77;
+    --line: #2c2d35;
+    --accent: #6fb0e0;
+    --accent-soft: #1b2f3f;
+    --verified: #4fcf8f;
+    --verified-soft: #14311f;
+    --forged: #f0785c;
+    --forged-soft: #3d1a13;
+    --warn: #e3ac3d;
+    --warn-soft: #3a2c10;
+    --slow: #f0a05a;
+    --fast: #ecebe6;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-verified: var(--verified);
+  --color-verified-soft: var(--verified-soft);
+  --color-forged: var(--forged);
+  --color-forged-soft: var(--forged-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* Subtle ruled-paper texture behind capture surfaces. */
+.paper-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--line) 55%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 280ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
+}
