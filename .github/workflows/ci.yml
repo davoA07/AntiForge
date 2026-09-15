@@ -15,7 +15,13 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
+      - name: Install
+        run: |
+          set -o pipefail
+          pnpm install --frozen-lockfile 2>&1 | tee install.log || {
+            echo "::error title=pnpm install failed::$(grep -iE 'ERR_|error|warn' install.log | head -8 | tr '\n' ' ')"
+            exit 1
+          }
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
