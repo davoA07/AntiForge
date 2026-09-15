@@ -1,6 +1,6 @@
 "use client";
 
-import { Eraser, Undo2 } from "lucide-react";
+import { Eraser, Smartphone, Undo2 } from "lucide-react";
 import {
   useCallback,
   useEffect,
@@ -279,6 +279,10 @@ export function SignaturePad({
           </button>
         </div>
       </div>
+      <p className="rotate-hint items-center gap-1.5 text-xs text-ink-3">
+        <Smartphone className="h-3.5 w-3.5 rotate-90" aria-hidden="true" />
+        Turn your phone sideways for more room to sign.
+      </p>
     </div>
   );
 }

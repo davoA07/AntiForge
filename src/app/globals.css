@@ -92,6 +92,17 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+/* Shown only on narrow portrait screens, where a landscape phone gives roughly twice the signing width. */
+.rotate-hint {
+  display: none;
+}
+
+@media (max-width: 500px) and (orientation: portrait) {
+  .rotate-hint {
+    display: flex;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
