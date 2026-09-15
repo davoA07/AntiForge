@@ -2,3 +2,6 @@ allowBuilds:
   esbuild: true
   sharp: false
   unrs-resolver: false
+
+# Supply-chain guard: refuse dependency versions published less than a day ago.
+minimumReleaseAge: 1440
